@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import ImageIndex from './components/ImageIndex';
-
-
 class App extends Component {
   
 
@@ -11,6 +9,7 @@ class App extends Component {
       <div className="App">
         
         <ImageIndex />
+        
       </div>
     );
   }

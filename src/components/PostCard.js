@@ -3,24 +3,38 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 
 
 class PostCard extends Component {
-   
-  
+
+    // state = {
+    //     grayScaleToggle: false,
+    // }
+
+    // toggleGrayScale= props => {
+    //     const newArray = []
+    //     const {imageData} = this.props;
+    //     console.log(imageData)
+    //     imageData.images.map( image => {
+    //         newArray.push(image.url.concat("?grayscale"))
+    //     });
+    // }
 
     render() {
         const imageUrl = this.props.image.url;
         const imageWidth = imageUrl.split('/')[5]
         const imageHeight = imageUrl.split('/')[6]
         const expandlink = '/images/' + this.props.image.id + '/'
+        const grayScaleImg = imageUrl.concat("?grayscale");
 
         return (
         <div>
             <Card color='blue'>
-            <a href={expandlink}><Image src={this.props.image.url} height /></a>
+            {this.props.grayScaleToggle? <a href={expandlink}><Image src={grayScaleImg} height /></a>
+                 : 
+            <a href={expandlink}><Image src={imageUrl} height /></a>}
 
                 <Card.Content>
+                
                 <Card.Header><a href={expandlink}>{this.props.image.title}</a></Card.Header>
                 <Card.Meta>
-                {/* <span className='date'>Posted in {dateFormatter(this.props.image.image_date)}</span> */}
                 </Card.Meta>
                 <Card.Description> {imageWidth} by {imageHeight}</Card.Description>
                 </Card.Content>

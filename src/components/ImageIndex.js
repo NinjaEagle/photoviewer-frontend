@@ -2,21 +2,35 @@ import React, { Component } from 'react';
 import {Pagination, Container, Divider, Grid, Dimmer, Loader} from 'semantic-ui-react'; 
 import PostCard from '../components/PostCard.js';
 import Filter from '../components/Filter';
+import GrayScale from '../components/Grayscale';
 
 class ImageIndex extends Component {
 
     state = {
         loading: true,
         imageIndex: [],
+        allImgs: [],
         activePage:1,
-        dimension:''   
+        dimension:'',
+        grayScaleToggle: false   
     }
 
     componentDidMount(){
         fetch(`http://localhost:3000/images`)
         .then(res => res.json())
-        .then(this.initialState)
+        .then(this.initialState) 
+        fetch(`http://localhost:3000/get_All_Pictures`)
+        .then(res => res.json())
+        .then(data => this.setState({allImgs: data}))
     }
+
+    // componentDidMount(){
+    //     fetch(`http://localhost:3000/get_All_Pictures`)
+    //     .then(res => res.json())
+    //     .then(data => this.setState({allImgs: data}))
+    // }
+    // filter throught images 
+    // allImgs.filter(()=>{this.state.dimension ===  })
 
     initialState = (resData) => {
         console.log(resData)
@@ -26,39 +40,58 @@ class ImageIndex extends Component {
             imageIndex: resData,
             activePage: resData.page
         })
+    
+        // sessionStorage.setItem('pictures', JSON.stringify(resData))
+        // let obj = JSON.parse(sessionStorage.pictures);
+        // console.log(obj);
     }
 
     setFilterTerm = (term) => {
-        console.log(term)
         this.setState({
           dimension: term
         })
     }
 
-    filterPictures(){
-        const pictureGrid = [...this.state.imageIndex.images];
-        console.log(pictureGrid);
-        function myFunction (image, index, arr){image.url.split('/').slice(5,7).join(' x ')};
-        const imageDimension = pictureGrid.forEach(myFunction);
-        console.log(imageDimension);
-        let filteredList = [];
-        // Filtering the spots according to type
-        if(this.state.dimension === "") filteredList = pictureGrid;
-        else {
-          filteredList = pictureGrid.filter(picture => 
-          picture === this.state.dimension)
-        }
 
+    toggleSwitch = evt => {
+        evt.preventDefault();
+            this.setState({ 
+                grayScaleToggle: !this.state.grayScaleToggle,
+            })
+    }
+
+    // 1. render only pagenation or filtered array
+    // 2. figure out how to filter dimentions 
+
+    // display10PerPage(){
+    //     const {imageIndex} = this.state;
+
+    //     return( 
+    //      <Grid.Column>
+    //         <PostCard grayScaleToggle={this.state.grayScaleToggle} key={image.id} image={image}/>
+    //      </Grid.Column>
+    //     )
+    // }
+    filterPictures(){
+        const pictureGrid = [...this.state.allImgs.images];
+        console.log(pictureGrid);
+        let newFilteredList = [];
+        // pictureGrid.map(image => { newFilteredList.push(images.url.split('/').slice(5,7).join('/'))});
+        // Filtering the spots by matching up the dimension with the dimension selected
+        if(this.state.dimension === "") newFilteredList = [...this.state.imageIndex.images];
+        else {
+            newFilteredList = pictureGrid.filter(picture => picture.url.includes(this.state.dimension))
+        }
         return(
-            filteredList.map(image => {
-                   return( <Grid.Column>
-                        <PostCard key={image.id} image={image}/>
-                    </Grid.Column>)
+            newFilteredList.map(image => {
+                return( <Grid.Column>
+                    <PostCard grayScaleToggle={this.state.grayScaleToggle} key={image.id} image={image}/>
+                </Grid.Column>)
             })
         )
     }
     
-
+// handles the active page and toggles through the pages
     handlePage = (e, { activePage }) => {
         let goToPage = { activePage }
         let pagenum = goToPage.activePage
@@ -77,6 +110,7 @@ class ImageIndex extends Component {
     render(){
         console.log(this.state)
 
+        // show while pictures are not loaded
         if(this.state.loading){
             return(
                 <Container>
@@ -93,6 +127,10 @@ class ImageIndex extends Component {
                 <Container textAlign='center'>
                 <h1>Photo Viewer App</h1>
                  <Filter setFilterTerm={this.setFilterTerm}/>
+                 <div class="ui toggle checkbox" onClick={this.toggleSwitch}>
+                    <input type="checkbox" name="public" />
+                    <label>Toggle Grayscale</label>
+                </div> 
                  <Divider hidden />
                 <Pagination  onPageChange={this.handlePage} size='mini' siblingRange="4" defaultActivePage={this.state.imageIndex.page} totalPages={this.state.imageIndex.pages} />
                 </Container>
