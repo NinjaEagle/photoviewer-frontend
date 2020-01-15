@@ -1,68 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :camera:PhotoViewer Frontend App:camera:
 
-## Available Scripts
+This restroom locator app has a google map in which the user can navigate and select the marker from the map. Clicking on the marker will show the information of the restroom and it can be added to the Selected Restroom List on the right. There is an option of filtering out the type of restroom as well as the wheelchair accessibility ones on the bottom. The about page has a user story and goes in detail about how to use the website.
 
-In the project directory, you can run:
+## Important Links
 
-### `yarn start`
+Here's the link to the backend: https://github.com/NinjaEagle/photoviewer-backend which contains the seeded data of selected restrooms and favorites.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Use your terminal to navigate into the place where you want to clone NYC Restroom Finder's directory and `git clone` the url.
+2. In terminal run `bundle install` in order to install the necessary gems needed to run the backend.
+3. In terminal run `npm install` in order to install the necessary packages found in the `package.json` file to run this frontend.
+4. Then this command: `yarn add semantic-ui-react`
+5. Run `rails s` on the backend (https://github.com/NinjaEagle/photoviewer-backend) then run `npm start` for the frontend folder.
+6. Open [http://localhost:3001](http://localhost:3001) or another port specified to view it in the browser.
 
-### `yarn test`
+## How to use this
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+PhotoViewer API is needed in order to accept HTTP requests from its frontend PhotoViewer. This allows users to:
+* Toggle grayscale on all the photos
+* Filter out image dimensions according to height and width(ex. 300 by 300, 100 by 100).
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**If** the backend https://photoviewer-backend.herokuapp.com/get_AllPictures url doesn't fetch in under the component, change all the fetches with photoviewer-backend back to localhost:3000 and start up the Rails backend first, following the steps in setup.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Built With 🛠️
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[ReactJS](https://github.com/facebook/react) - Frontend Framework
+&&
+[Ruby on Rails](https://github.com/rails/rails) - Backend Ruby on Rails API created using ActiveRecord deployed on Heroku
