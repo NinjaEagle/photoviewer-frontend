@@ -22,7 +22,7 @@ PhotoViewer API is needed in order to accept HTTP requests from its frontend Pho
 * Toggle grayscale on all the photos
 * Filter out image dimensions according to height and width(ex. 300 by 300, 100 by 100).
 
-* Note* clicking the pictures individually doesn't take you to the individual picture page yet. Future features would include image manipulation, error handling, and request caching.
+** Note** Clicking on the pictures individually doesn't take you to the individual picture page yet. Future features would include image manipulation, error handling, and request caching.
 
 ## Built With 🛠️
 
