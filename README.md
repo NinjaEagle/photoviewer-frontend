@@ -22,8 +22,7 @@ PhotoViewer API is needed in order to accept HTTP requests from its frontend Pho
 * Toggle grayscale on all the photos
 * Filter out image dimensions according to height and width(ex. 300 by 300, 100 by 100).
 
-
-**If** the backend https://photoviewer-backend.herokuapp.com/get_AllPictures url doesn't fetch in under the component, change all the fetches with photoviewer-backend back to localhost:3000 and start up the Rails backend first, following the steps in setup.
+* Note* clicking the pictures individually doesn't take you to the individual picture page yet. Future features would include image manipulation, error handling, and request caching.
 
 ## Built With 🛠️
 
