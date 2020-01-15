@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Pagination, Container, Divider, Grid, Dimmer, Loader} from 'semantic-ui-react'; 
 import PostCard from '../components/PostCard.js';
 import Filter from '../components/Filter';
-import GrayScale from '../components/Grayscale';
+import  '../imageindex.css'
 
 class ImageIndex extends Component {
 
@@ -16,24 +16,21 @@ class ImageIndex extends Component {
     }
 
     componentDidMount(){
-        fetch(`http://localhost:3000/images`)
+        // change fetch below from 20 to 21 as backend is deployed to heroku
+         // fetch(`http://localhost:3000/get_All_Pictures`)
+         fetch("https://photoviewer-backend.herokuapp.com/get_All_Pictures")
+         .then(res => res.json())
+         .then(data => this.setState({allImgs: data.images}));
+        // changed fetch below from 24 to 25
+        // fetch(`http://localhost:3000/images`)
+        fetch("https://photoviewer-backend.herokuapp.com/images")
         .then(res => res.json())
-        .then(this.initialState) 
-        fetch(`http://localhost:3000/get_All_Pictures`)
-        .then(res => res.json())
-        .then(data => this.setState({allImgs: data}))
+        .then(this.initialState); 
+       
     }
 
-    // componentDidMount(){
-    //     fetch(`http://localhost:3000/get_All_Pictures`)
-    //     .then(res => res.json())
-    //     .then(data => this.setState({allImgs: data}))
-    // }
-    // filter throught images 
-    // allImgs.filter(()=>{this.state.dimension ===  })
 
     initialState = (resData) => {
-        console.log(resData)
         this.setState({
             // loading finished so update state to false
             loading: false,
@@ -60,25 +57,15 @@ class ImageIndex extends Component {
             })
     }
 
-    // 1. render only pagenation or filtered array
-    // 2. figure out how to filter dimentions 
 
-    // display10PerPage(){
-    //     const {imageIndex} = this.state;
+    //filter dimentions function
 
-    //     return( 
-    //      <Grid.Column>
-    //         <PostCard grayScaleToggle={this.state.grayScaleToggle} key={image.id} image={image}/>
-    //      </Grid.Column>
-    //     )
-    // }
     filterPictures(){
-        const pictureGrid = [...this.state.allImgs.images];
-        console.log(pictureGrid);
+        const pictureGrid = [...this.state.allImgs];
         let newFilteredList = [];
-        // pictureGrid.map(image => { newFilteredList.push(images.url.split('/').slice(5,7).join('/'))});
         // Filtering the spots by matching up the dimension with the dimension selected
         if(this.state.dimension === "") newFilteredList = [...this.state.imageIndex.images];
+        // dimension selected from filter list
         else {
             newFilteredList = pictureGrid.filter(picture => picture.url.includes(this.state.dimension))
         }
@@ -100,7 +87,8 @@ class ImageIndex extends Component {
         this.setState({
         loading: true
         })
-        const url = `http://localhost:3000/images/?page=` + pagestring
+        // const url = `http://localhost:3000/images/?page=` + pagestring
+        const url = `https://photoviewer-backend.herokuapp.com/images/?page=`+ pagestring
 
         fetch(url)
         .then(res => res.json())
@@ -122,15 +110,18 @@ class ImageIndex extends Component {
         }
 
         return (
-            <Container>
+            <div>
+            <Container >
                 <Divider hidden />
-                <Container textAlign='center'>
-                <h1>Photo Viewer App</h1>
-                 <Filter setFilterTerm={this.setFilterTerm}/>
-                 <div class="ui toggle checkbox" onClick={this.toggleSwitch}>
-                    <input type="checkbox" name="public" />
-                    <label>Toggle Grayscale</label>
-                </div> 
+                <Container  textAlign='center'>
+                    <h1>Photo Viewer App</h1>
+                <div className="top-part">
+                    <Filter setFilterTerm={this.setFilterTerm}/>
+                    <div class="ui toggle checkbox" onClick={this.toggleSwitch}>
+                        <input type="checkbox" name="public" />
+                        <label>Toggle Grayscale</label>
+                    </div> 
+                </div>
                  <Divider hidden />
                 <Pagination  onPageChange={this.handlePage} size='mini' siblingRange="4" defaultActivePage={this.state.imageIndex.page} totalPages={this.state.imageIndex.pages} />
                 </Container>
@@ -146,6 +137,7 @@ class ImageIndex extends Component {
                 </Grid>
 
             </Container>
+            </div>
         );
     }
 }

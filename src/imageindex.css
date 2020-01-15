@@ -1,0 +1,20 @@
+.ui.toggle.checkbox {
+    cursor: pointer;
+    min-height: 1.5rem;
+  }
+  .ui.toggle.checkbox .box,
+  .ui.toggle.checkbox label {
+    min-height: 1.5rem;
+    padding-left: 4.5rem;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  .ui.toggle.checkbox label {
+    padding-top: 0.15em;
+  }
+
+  .top-part{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }

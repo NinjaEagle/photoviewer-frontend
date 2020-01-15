@@ -4,28 +4,28 @@ import isBoolean from 'lodash/isBoolean';
 import isFunction from 'lodash/isFunction';
 
 class Grayscale extends Component {
-    state = {
-        enabled: false
-    }
+    // state = {
+    //     enabled: false
+    // }
 
 
-     toggleSwitch = evt => {
-        evt.preventDefault();
+    //  toggleSwitch = evt => {
+    //     evt.preventDefault();
 
-        if(this.state.enabled === false) {
-          this.setState({ 
-            enabled: !this.state.enabled,
-            // grayArray: newArray
-        })
-        console.log("grayscale toggled on");
-        } else{
-            this.setState({ 
-                enabled: !this.state.enabled,
-            })
-        }
-            // console.log(newArray)
-        this.props.grayScaleToggle(this.state)
-    }
+    //     if(this.state.enabled === false) {
+    //       this.setState({ 
+    //         enabled: !this.state.enabled,
+    //         // grayArray: newArray
+    //     })
+    //     console.log("grayscale toggled on");
+    //     } else{
+    //         this.setState({ 
+    //             enabled: !this.state.enabled,
+    //         })
+    //     }
+    //         // console.log(newArray)
+    //     this.props.grayScaleToggle(this.state)
+    // }
     
     
     render() {

@@ -4,19 +4,6 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 
 class PostCard extends Component {
 
-    // state = {
-    //     grayScaleToggle: false,
-    // }
-
-    // toggleGrayScale= props => {
-    //     const newArray = []
-    //     const {imageData} = this.props;
-    //     console.log(imageData)
-    //     imageData.images.map( image => {
-    //         newArray.push(image.url.concat("?grayscale"))
-    //     });
-    // }
-
     render() {
         const imageUrl = this.props.image.url;
         const imageWidth = imageUrl.split('/')[5]
@@ -24,6 +11,8 @@ class PostCard extends Component {
         const expandlink = '/images/' + this.props.image.id + '/'
         const grayScaleImg = imageUrl.concat("?grayscale");
 
+
+        // for the future, I want to implement the like photo feature
         return (
         <div>
             <Card color='blue'>
@@ -36,12 +25,14 @@ class PostCard extends Component {
                 <Card.Header><a href={expandlink}>{this.props.image.title}</a></Card.Header>
                 <Card.Meta>
                 </Card.Meta>
-                <Card.Description> {imageWidth} by {imageHeight}</Card.Description>
+                <Card.Description> Image {this.props.image.id} <br></br>
+                {imageWidth} by {imageHeight}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                <a href="lala">
+
+                <a href="Image">
                 <Icon name='like' />
-                {this.props.image.likes} Likes
+            
                 </a>
             </Card.Content>
             </Card>
