@@ -1,4 +1,4 @@
-## :PhotoViewer Frontend App:photo:
+## :photo:PhotoViewer Frontend App:photo:
 
 This restroom locator app has a google map in which the user can navigate and select the marker from the map. Clicking on the marker will show the information of the restroom and it can be added to the Selected Restroom List on the right. There is an option of filtering out the type of restroom as well as the wheelchair accessibility ones on the bottom. The about page has a user story and goes in detail about how to use the website.
 
