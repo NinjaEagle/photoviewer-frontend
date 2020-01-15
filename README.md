@@ -3,7 +3,7 @@
 This restroom locator app has a google map in which the user can navigate and select the marker from the map. Clicking on the marker will show the information of the restroom and it can be added to the Selected Restroom List on the right. There is an option of filtering out the type of restroom as well as the wheelchair accessibility ones on the bottom. The about page has a user story and goes in detail about how to use the website.
 
 ## Important Links
-Here's a live link: http://ninjeagle.github.io/photoviewer-frontend
+Here's a live link: https://ninjaeagle.github.io/photoviewer-frontend/
 
 Here's the link to the backend: https://github.com/NinjaEagle/photoviewer-backend which contains the seeded data of selected restrooms and favorites.
 
