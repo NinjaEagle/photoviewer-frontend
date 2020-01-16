@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {Pagination, Container, Divider, Grid, Dimmer, Loader} from 'semantic-ui-react'; 
+import {Pagination, Container, Divider, Grid, Dimmer, Loader, Checkbox} from 'semantic-ui-react'; 
 import PostCard from '../components/PostCard.js';
 import Filter from '../components/Filter';
 import  '../imageindex.css'
 
 class ImageIndex extends Component {
-
+    
     state = {
         loading: true,
         imageIndex: [],
@@ -40,7 +40,7 @@ class ImageIndex extends Component {
     
         // sessionStorage.setItem('pictures', JSON.stringify(resData))
         // let obj = JSON.parse(sessionStorage.pictures);
-        // console.log(obj);
+        // consoleg.log(obj)
     }
 
     setFilterTerm = (term) => {
@@ -83,7 +83,6 @@ class ImageIndex extends Component {
         let goToPage = { activePage }
         let pagenum = goToPage.activePage
         let pagestring = pagenum.toString()
-        console.log(pagestring)
         this.setState({
         loading: true
         })
@@ -96,7 +95,6 @@ class ImageIndex extends Component {
     }
 
     render(){
-        console.log(this.state)
 
         // show while pictures are not loaded
         if(this.state.loading){
@@ -117,22 +115,18 @@ class ImageIndex extends Component {
                     <h1>Photo Viewer App</h1>
                 <div className="top-part">
                     <Filter setFilterTerm={this.setFilterTerm}/>
-                    <div class="ui toggle checkbox" onClick={this.toggleSwitch}>
-                        <input type="checkbox" name="public" />
-                        <label>Toggle Grayscale</label>
-                    </div> 
+                        <div>
+                      <h3>Toggle Grayscale</h3>
+                    <Checkbox className="ui toggle checkbox" onClick={this.toggleSwitch} toggle >
+                    </Checkbox>
+                    </div>
+            
                 </div>
                  <Divider hidden />
                 <Pagination  onPageChange={this.handlePage} size='mini' siblingRange="4" defaultActivePage={this.state.imageIndex.page} totalPages={this.state.imageIndex.pages} />
                 </Container>
                     <Divider hidden />
                 <Grid relaxed columns={5}>
-                {/* { this.state.imageIndex.images.map(image => {
-                    return (
-                    <Grid.Column>
-                        <PostCard key={image.id} image={image}/>
-                    </Grid.Column>)
-                }) } */}
                   {this.filterPictures()}
                 </Grid>
 
