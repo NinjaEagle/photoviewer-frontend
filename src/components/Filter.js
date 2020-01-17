@@ -6,49 +6,12 @@ class Filter extends Component {
     };
     
       handleChange = e => {
-          console.log(e.target)
         this.setState({ [e.target.name]: e.target.value });
       };
 
 
     render() {
-        console.log(this.state);
 
-        // const heightOptions = [
-        //     {
-        //         key: 'all',
-        //         text:'All',
-        //         value:'All'
-        //     },
-        //     {
-        //         key: '1',
-        //         text:'300 x 200',
-        //         value:'300 x 200'
-        //     },
-        //     {
-        //         key: '2',
-        //         text:'100 x 100',
-        //         value:'100 x 100'
-        //     },
-        //     {
-        //         key: '3',
-        //         text:'250 x 250',
-        //         value:'250 x 250'
-        //     },
-        //     {
-        //         key: '4',
-        //         text:'400 x 200',
-        //         value:'400 x 200'
-        //     },
-        //     {
-        //         key: '5',
-        //         text:'300 x 300',
-        //         value:'300 x 300'
-        //     },
-        // ]
-        // const linkstyle = {
-        //     pointerevents: "all",
-        // }
         return (
             <div>
                 <h3>Filter By:</h3>
