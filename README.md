@@ -9,7 +9,7 @@ Here's the link to the backend: https://github.com/NinjaEagle/photoviewer-backen
 
 ## Setup
 
-1. Use your terminal to navigate into the place where you want to clone NYC Restroom Finder's directory and `git clone` the url.
+1. Use your terminal to navigate into the place where you want to clone PhotoViewer Frontend's directory and `git clone` the url.
 2. In terminal run `bundle install` in order to install the necessary gems needed to run the backend.
 3. In terminal run `npm install` in order to install the necessary packages found in the `package.json` file to run this frontend.
 4. Then this command: `yarn add semantic-ui-react`
