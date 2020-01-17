@@ -1,6 +1,7 @@
 {
   "files": {
     "main.css": "/photoviewer-frontend/static/css/main.2336cee6.chunk.css",
+<<<<<<< HEAD
     "main.js": "/photoviewer-frontend/static/js/main.7bd93910.chunk.js",
     "main.js.map": "/photoviewer-frontend/static/js/main.7bd93910.chunk.js.map",
     "runtime-main.js": "/photoviewer-frontend/static/js/runtime-main.885244cf.js",
@@ -18,5 +19,24 @@
     "static/js/2.76c769f2.chunk.js",
     "static/css/main.2336cee6.chunk.css",
     "static/js/main.7bd93910.chunk.js"
+=======
+    "main.js": "/photoviewer-frontend/static/js/main.8b0b70ec.chunk.js",
+    "main.js.map": "/photoviewer-frontend/static/js/main.8b0b70ec.chunk.js.map",
+    "runtime-main.js": "/photoviewer-frontend/static/js/runtime-main.885244cf.js",
+    "runtime-main.js.map": "/photoviewer-frontend/static/js/runtime-main.885244cf.js.map",
+    "static/js/2.15e73f03.chunk.js": "/photoviewer-frontend/static/js/2.15e73f03.chunk.js",
+    "static/js/2.15e73f03.chunk.js.map": "/photoviewer-frontend/static/js/2.15e73f03.chunk.js.map",
+    "index.html": "/photoviewer-frontend/index.html",
+    "precache-manifest.b002e23dae8da0877c469183a550a947.js": "/photoviewer-frontend/precache-manifest.b002e23dae8da0877c469183a550a947.js",
+    "service-worker.js": "/photoviewer-frontend/service-worker.js",
+    "static/css/main.2336cee6.chunk.css.map": "/photoviewer-frontend/static/css/main.2336cee6.chunk.css.map",
+    "static/js/2.15e73f03.chunk.js.LICENSE": "/photoviewer-frontend/static/js/2.15e73f03.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.885244cf.js",
+    "static/js/2.15e73f03.chunk.js",
+    "static/css/main.2336cee6.chunk.css",
+    "static/js/main.8b0b70ec.chunk.js"
+>>>>>>> master
   ]
 }

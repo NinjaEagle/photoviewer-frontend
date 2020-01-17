@@ -3,6 +3,7 @@
 This restroom locator app has a google map in which the user can navigate and select the marker from the map. Clicking on the marker will show the information of the restroom and it can be added to the Selected Restroom List on the right. There is an option of filtering out the type of restroom as well as the wheelchair accessibility ones on the bottom. The about page has a user story and goes in detail about how to use the website.
 
 ## Important Links
+Here's a live link: https://ninjaeagle.github.io/photoviewer-frontend/
 
 Here's the link to the backend: https://github.com/NinjaEagle/photoviewer-backend which contains the seeded data of selected restrooms and favorites.
 
@@ -21,8 +22,7 @@ PhotoViewer API is needed in order to accept HTTP requests from its frontend Pho
 * Toggle grayscale on all the photos
 * Filter out image dimensions according to height and width(ex. 300 by 300, 100 by 100).
 
-
-**If** the backend https://photoviewer-backend.herokuapp.com/get_AllPictures url doesn't fetch in under the component, change all the fetches with photoviewer-backend back to localhost:3000 and start up the Rails backend first, following the steps in setup.
+** Note** Clicking on the pictures individually doesn't take you to the individual picture page yet. Future features would include image manipulation, error handling, and request caching.
 
 ## Built With 🛠️
 

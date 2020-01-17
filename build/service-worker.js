@@ -14,7 +14,11 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
+<<<<<<< HEAD
   "/photoviewer-frontend/precache-manifest.0f592e364629f84fcc3cebbd9801f91a.js"
+=======
+  "/photoviewer-frontend/precache-manifest.b002e23dae8da0877c469183a550a947.js"
+>>>>>>> master
 );
 
 self.addEventListener('message', (event) => {
